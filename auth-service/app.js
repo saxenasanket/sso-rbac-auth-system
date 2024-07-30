@@ -28,7 +28,7 @@ app.post("/login", async (req, res) => {
     res.json({
       accessToken,
       refreshToken,
-      ...data
+      ...data,
     });
   } catch (err) {
     console.error(err);

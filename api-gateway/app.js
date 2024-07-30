@@ -7,7 +7,7 @@ import redis from "ioredis";
 // Create a Redis client
 const redisClient = redis.createClient({
   host: "127.0.0.1",
-  port: 6379, 
+  port: 6379,
 });
 
 redisClient.on("error", (error) => {
@@ -18,7 +18,6 @@ redisClient.on("end", () => {
   console.log("Redis client connection closed");
 });
 
-
 const app = express();
 const apiLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
@@ -27,7 +26,7 @@ const apiLimiter = rateLimit({
 });
 app.use(apiLimiter);
 
-const authUrl = "http://localhost:3001"; 
+const authUrl = "http://localhost:3001";
 
 const authMiddleware = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
@@ -70,7 +69,6 @@ app.use(
   })
 );
 
-
 app.use(
   "/api/service1",
   authMiddleware,
@@ -87,8 +85,6 @@ app.use(
     },
   })
 );
-
-
 
 const port = process.env.PORT || 3000;
 
