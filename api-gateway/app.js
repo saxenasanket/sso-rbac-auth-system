@@ -18,7 +18,7 @@ redisClient.on("end", () => {
   console.log("Redis client connection closed");
 });
 
-
+// estos son los cambios subidos
 const app = express();
 const apiLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
